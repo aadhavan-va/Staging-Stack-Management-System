@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Employee Manager</title>
+</head>
+<body>
+<div align="center">
+    <h2>Employee List</h2>
+    <a href="/new">Create New UserInstance</a>
+    <br/><br/>
+    <table border="1" cellpadding ="10">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Instance ID</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Role</th>
+                <th>Purpose</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+                <td th:text="${product.id}">Employee ID</td>
+                <td th:text="${product.instance_id}">Instance ID</td>
+                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.team}">Team</td>
+                <td th:text="${product.role}">Role</td>
+                <td th:text="${product.purpose}">Purpose</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                   
+                    
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+   
+</div>   
+<div align="center">
+    <h2>Query List</h2>
+    <a href="/Query">Query For UserInstance</a>
+    <br/><br/>
+  </div>
+  
+  <div align="center">
+    <h2>Query Instance By ID</h2>
+    <a href="/ViewInstance">Query Instance and State</a>
+    <br/><br/>
+  </div>
+  
+</body>
+</html>
